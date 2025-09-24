@@ -1,0 +1,98 @@
+:root {
+  --max-width: 1280px;
+  --padding-base: 2rem;
+  --padding-logo: 1.5em;
+  --logo-height: 6em;
+  --transition-duration: 300ms;
+
+  /* Colors */
+  --shadow-primary: #646cffaa;
+  --shadow-react: #61dafbaa;
+  --text-color-muted: #888;
+  --accent: #646cff;
+  --accent-hover: #4c53d2;
+  --background-gradient: linear-gradient(135deg, #f8f9fa, #eef2f7);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--background-gradient);
+  color: #222;
+  line-height: 1.6;
+}
+
+#root {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--padding-base);
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  display: inline-block;
+  height: var(--logo-height);
+  padding: var(--padding-logo);
+  will-change: filter, transform;
+  transition: filter var(--transition-duration) ease-in-out,
+              transform var(--transition-duration) ease-in-out;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--shadow-primary));
+  transform: scale(1.1);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--shadow-react));
+}
+
+/* Logo spin */
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin 20s linear infinite;
+  }
+}
+
+/* Card */
+.card {
+  padding: var(--padding-base);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(100, 108, 255, 0.1);
+  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem rgba(100, 108, 255, 0.2);
+}
+
+/* Read docs link */
+.read-the-docs {
+  color: var(--text-color-muted);
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all var(--transition-duration) ease;
+}
+
+.read-the-docs:hover {
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.3);
+  transform: translateY(-3px);
+}
